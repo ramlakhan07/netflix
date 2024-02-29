@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Music Player</title>
+  <style>
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    audio {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Simple Music Player</h2>
+    <audio id="audio" controls>
+      <source src="Ramphool_meena.mp3" type="audio/mpeg">
+    </audio>
+    <div>
+      <button id="playPauseBtn" onclick="togglePlayPause()">Play/Pause</button>
+      <!-- <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1" onchange="changeVolume()"> -->
+    </div>
+  </div>
+
+  <script>
+    var audio = document.getElementById('audio');
+    var playPauseBtn = document.getElementById('playPauseBtn');
+    var volumeControl = document.getElementById('volumeControl');
+
+    function togglePlayPause() {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = 'Pause';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = 'Play';
+      }
+    }
+
+    function changeVolume() {
+      audio.volume = volumeControl.value;
+    }
+  </script>
+</body>
+</html>
